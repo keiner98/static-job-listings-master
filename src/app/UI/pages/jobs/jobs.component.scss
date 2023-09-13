@@ -1,0 +1,145 @@
+//COLORS
+
+$color-primary: hsl(180, 29%, 50%);
+$color-neutral-background: hsl(180, 52%, 96%);
+$color-neutral-filter: hsl(180, 31%, 95%);
+$color-neutral-dark: hsl(180, 8%, 52%);
+$color-neutral-very: hsl(180, 14%, 20%);
+
+.jobs {
+  height: 100vh;
+  width: 100vw;
+  background-color: $color-neutral-background;
+  display: flex;
+  flex-direction: column;
+  .header {
+    .img {
+      height: 100px;
+      width: 100%;
+      background-color: $color-primary;
+    }
+  }
+  .filter {
+    position: absolute;
+    top: 50px;
+  }
+  .content {
+    // width: 100vw;
+    // height: calc(100vh - 100px);
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    padding-top: 5rem;
+    app-card {
+      width: 70%;
+      min-height: 120px;
+      .card__content {
+        padding: 10px 30px;
+        height: 100px;
+        flex-wrap: wrap;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &__data {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          // width: 100%;
+          gap: 28px;
+          img {
+            width: 5.5rem;
+            height: 5.5rem;
+            object-fit: contain;
+          }
+          &__info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+            .title {
+              display: flex;
+              flex-direction: row;
+              gap: 12px;
+              .company {
+                font-size: 15px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-align: center;
+                color: $color-primary;
+                padding-top: 2px;
+              }
+              .new {
+                background-color: $color-primary;
+                color: $color-neutral-background;
+                padding: 6px 8px 4px 8px;
+                font-size: 12px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-align: center;
+              }
+              .featured {
+                background-color: $color-neutral-very;
+                color: white;
+                padding: 6px 8px 4px 8px;
+                font-size: 12px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-align: center;
+              }
+            }
+            .subtitle {
+              color: $color-neutral-very;
+              // padding-top: 12px;
+              font-size: 18px;
+              font-weight: 600;
+              &:hover {
+                color: $color-primary;
+              }
+            }
+            .info {
+              display: flex;
+              gap: 12px;
+              justify-content: flex-start;
+              ol {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                min-width: 194px;
+                li {
+                  width: 100%;
+                  list-style-position: inside;
+                  list-style-type: disc;
+                  // list-style: ;
+                }
+              }
+            }
+          }
+        }
+        &__options {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          .option {
+            background-color: $color-neutral-background;
+            color: $color-primary;
+            padding: 0.5rem 0.75rem;
+            font-size: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            &:hover {
+              color: $color-neutral-background;
+              background: $color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
