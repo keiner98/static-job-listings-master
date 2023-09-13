@@ -1,5 +1,15 @@
 <div class="filter">
-  <app-card> <div class="content-card">
-
-  </div></app-card>
+  <app-card>
+    <div class="content-card">
+      <div class="elements">
+        <div class="element" *ngFor="let filter of filters">
+          <span> {{ filter }} </span>
+          <button (click)="remove(filter)">X</button>
+        </div>
+      </div>
+      <div class="clear">
+        <span (click)="removeAll()">Clear</span>
+      </div>
+    </div></app-card
+  >
 </div>

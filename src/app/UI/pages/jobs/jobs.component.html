@@ -6,60 +6,68 @@
       alt=""
     />
   </header>
-  <!-- <div class="filter" *ngIf="filters.length === 0">
-    <app-filter></app-filter>
-  </div> -->
+  <div class="filter" *ngIf="filters.length > 0">
+    <div class="contain-filter">
+      <app-filter
+        (newFilters)="filters = $event"
+        [filters]="filters"
+      ></app-filter>
+    </div>
+  </div>
   <section class="content">
-    <app-card
-      *ngFor="let job of jobs | filter : filters"
-      [activeHover]="true"
-      [selected]="selected === job.id ? true : false"
-      (click)="selected = job.id"
-    >
-      <div class="card__content">
-        <div class="card__content__data">
-          <img [src]="job.logo" alt="" />
-          <div class="card__content__data__info">
-            <div class="title">
-              <span class="company">
-                {{ job.company }}
-              </span>
-              <span class="new" *ngIf="job.new">NEW!</span>
-              <span class="featured" *ngIf="job.featured">FEATURED</span>
-            </div>
-            <span class="subtitle"> {{ job.position }} </span>
-            <div class="info">
-              <span> {{ job.postedAt }} </span>
-              <ol>
-                <li>{{ job.contract }}</li>
-                <li>{{ job.location }}</li>
-              </ol>
+    <div class="cards">
+      <app-card
+        *ngFor="let job of jobs | filter : filters"
+        [activeHover]="true"
+        [selected]="selected === job.id ? true : false"
+        (click)="selected = job.id"
+      >
+        <div class="card__content">
+          <div class="card__content__data">
+            <img [src]="job.logo" alt="" />
+            <div class="card__content__data__info">
+              <div class="title">
+                <span class="company">
+                  {{ job.company }}
+                </span>
+                <span class="new" *ngIf="job.new">NEW!</span>
+                <span class="featured" *ngIf="job.featured">FEATURED</span>
+              </div>
+              <span class="subtitle"> {{ job.position }} </span>
+              <div class="info">
+                <span> {{ job.postedAt }} </span>
+                <ol>
+                  <li>{{ job.contract }}</li>
+                  <li>{{ job.location }}</li>
+                </ol>
+              </div>
             </div>
           </div>
+          <div class="divider"></div>
+          <div class="card__content__options">
+            <span
+              *ngFor="let language of job.languages"
+              class="option"
+              (click)="addFilter(language)"
+            >
+              {{ language }}
+            </span>
+            <span class="option" (click)="addFilter(job.level)">
+              {{ job.level }}
+            </span>
+            <span class="option" (click)="addFilter(job.role)">
+              {{ job.role }}
+            </span>
+            <span
+              *ngFor="let tool of job.tools"
+              class="option"
+              (click)="addFilter(tool)"
+            >
+              {{ tool }}
+            </span>
+          </div>
         </div>
-        <div class="card__content__options">
-          <span
-            *ngFor="let language of job.languages"
-            class="option"
-            (click)="addFilter(language)"
-          >
-            {{ language }}
-          </span>
-          <span class="option" (click)="addFilter(job.level)">
-            {{ job.level }}
-          </span>
-          <span class="option" (click)="addFilter(job.role)">
-            {{ job.role }}
-          </span>
-          <span
-            *ngFor="let tool of job.tools"
-            class="option"
-            (click)="addFilter(tool)"
-          >
-            {{ tool }}
-          </span>
-        </div>
-      </div>
-    </app-card>
+      </app-card>
+    </div>
   </section>
 </div>

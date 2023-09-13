@@ -1,4 +1,53 @@
-.filter{
+$color-primary: hsl(180, 29%, 50%);
+$color-neutral-background: hsl(180, 52%, 96%);
+$color-neutral-very: hsl(180, 14%, 20%);
+
+.filter {
   width: 100%;
-  height: auto;
+  height: 100%;
+}
+
+.content-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  .elements {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .element {
+      background-color: $color-neutral-background;
+      display: flex;
+      span {
+        padding: 8px 12px;
+        color: $color-primary;
+        border-radius: 6px;
+        cursor: default;
+        font-size: 15px;
+      }
+      button {
+        background-color: $color-primary;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        border-radius: 0 6px 6px 0;
+        &:hover {
+          background-color: $color-neutral-very;
+        }
+      }
+    }
+  }
+}
+
+.clear {
+  color: $color-primary;
+  cursor: pointer;
+  font-weight: 600;
+  &:hover {
+    text-decoration: underline;
+  }
 }

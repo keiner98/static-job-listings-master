@@ -12,7 +12,9 @@ $color-neutral-very: hsl(180, 14%, 20%);
   background-color: $color-neutral-background;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   .header {
+    height: 100px;
     .img {
       height: 100px;
       width: 100%;
@@ -21,25 +23,39 @@ $color-neutral-very: hsl(180, 14%, 20%);
   }
   .filter {
     position: absolute;
-    top: 50px;
+    top: 65px;
+    width: 100%;
+    min-height: 60px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .contain-filter {
+      position: relative;
+      height: 100%;
+      width: 70%;
+      z-index: 10;
+    }
   }
   .content {
-    // width: 100vw;
-    // height: calc(100vh - 100px);
     overflow-y: auto;
-    position: relative;
+    height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.4rem;
-    padding-top: 5rem;
+    .cards {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 3.125rem;
+    }
     app-card {
       width: 70%;
-      min-height: 120px;
+      margin-top: 20px;
       .card__content {
         padding: 10px 30px;
-        height: 100px;
+        position: relative;
         flex-wrap: wrap;
         cursor: pointer;
         display: flex;
@@ -106,6 +122,7 @@ $color-neutral-very: hsl(180, 14%, 20%);
               display: flex;
               gap: 12px;
               justify-content: flex-start;
+              color: $color-neutral-dark;
               ol {
                 display: flex;
                 margin: 0;
@@ -141,5 +158,60 @@ $color-neutral-very: hsl(180, 14%, 20%);
         }
       }
     }
+  }
+  .divider {
+    width: 100%;
+    margin-top: 19px;
+    height: 1px;
+    background: #c5c5c5;
+    display: none;
+  }
+}
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+  height: 4px;
+  width: 4px;
+}
+
+@media (max-width: 767px) {
+  .card__content__data {
+    margin-top: 32px !important;
+    .info {
+      gap: 16px;
+      font-size: 13px;
+    }
+    li {
+      width: 69px !important;
+    }
+    img {
+      position: absolute;
+      height: 3.5rem !important;
+      left: 0;
+      top: -25px;
+    }
+    .company {
+      font-size: 16px !important;
+    }
+  }
+  .card__content__options {
+    flex-wrap: wrap;
+    margin-top: 14px;
+    .option {
+      font-size: 11px !important;
+    }
+  }
+  .cards {
+    app-card {
+      margin-top: 43px !important;
+    }
+  }
+
+  .divider {
+    display: block !important;
   }
 }
