@@ -5,33 +5,21 @@ import { Jobs } from 'src/app/Domain/interfaces/jobs.interface';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(
-    value: any[],
-    arg: any,
-    type: string = 'role',
-    type2: string = 'level'
-  ): any {
-    console.log(arg, value);
+  transform(jobs: Jobs[], filters: string[]): Jobs[] {
+    if (!jobs || jobs.length === 0 || !filters || filters.length === 0) {
+      return jobs;
+    }
 
-    return value; // if (value !== undefined) {
-    //   let result = [];
-    //   for (const element of value) {
-    //     if (element[type].toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-    //       result.push(element);
-    //     }
-    //     if (type2 !== '') {
-    //       if (element[type2].toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-    //         result.push(element);
-    //       }
-    //     }
-    //   }
-    //   let data: any[] = [];
-    //   result.forEach((item) => {
-    //     if (!data.find((itemResult) => itemResult[type] === item[type])) {
-    //       data.push(item);
-    //     }
-    //   });
-    //   return data;
-    // }
+    return jobs.filter(job => {
+      // Verifica si todas las categorías en filters están presentes en el trabajo actual
+      return filters.every(filter => {
+        return (
+          job.tools.includes(filter) ||
+          job.languages.includes(filter) ||
+          job.level === filter ||
+          job.role === filter
+        );
+      });
+    });
   }
 }
