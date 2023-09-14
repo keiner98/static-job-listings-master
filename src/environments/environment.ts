@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://localhost:4200',
+  urlApi: 'https://static-job-listings-master-keinermolina.vercel.app',
 };
 
 /*
