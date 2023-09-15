@@ -24,7 +24,7 @@ $color-neutral-very: hsl(180, 14%, 20%);
       span {
         padding: 8px 12px;
         color: $color-primary;
-        border-radius: 6px;
+        border-radius: 4px;
         cursor: default;
         font-size: 15px;
       }
@@ -34,7 +34,9 @@ $color-neutral-very: hsl(180, 14%, 20%);
         font-weight: 700;
         cursor: pointer;
         border: none;
-        border-radius: 0 6px 6px 0;
+        font-family: 'League Spartan';
+        width: 25px;
+        border-radius: 0 4px 4px 0;
         &:hover {
           background-color: $color-neutral-very;
         }

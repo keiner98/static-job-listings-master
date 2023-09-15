@@ -1,4 +1,4 @@
-<div class="jobs">
+<main class="jobs">
   <header class="header">
     <img
       class="img"
@@ -45,29 +45,29 @@
           </div>
           <div class="divider"></div>
           <div class="card__content__options">
-            <span
+            <button
               *ngFor="let language of job.languages"
               class="option"
               (click)="addFilter(language)"
             >
               {{ language }}
-            </span>
-            <span class="option" (click)="addFilter(job.level)">
+            </button>
+            <button class="option" (click)="addFilter(job.level)">
               {{ job.level }}
-            </span>
-            <span class="option" (click)="addFilter(job.role)">
+            </button>
+            <button class="option" (click)="addFilter(job.role)">
               {{ job.role }}
-            </span>
-            <span
+            </button>
+            <button
               *ngFor="let tool of job.tools"
               class="option"
               (click)="addFilter(tool)"
             >
               {{ tool }}
-            </span>
+            </button>
           </div>
         </div>
       </app-card>
     </div>
   </section>
-</div>
+</main>
